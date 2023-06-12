@@ -1,5 +1,5 @@
 @extends('layout.layout')
-@section('tile','gucci')
+@section('tile','Material')
 @section('content')
 <div class="table-responsive">
    <table class="table table-striped
@@ -8,36 +8,28 @@
    table-primary
    align-middle">
        <thead class="table-light">
-           <h1 class="h1">Product</h1>
+           <h1 class="h1">Material</h1>
            <tr>
                <th>Id</th>
                <th>Name</th>
-               <th>Price</th>
-               <th>Material</th>
-               <th>Biography</th>
+               <th>Uses</th>
                <th>Action</th>
            </tr>
            </thead>
            <tbody class="table-group-divider">
-             @foreach ($gucci as $gucci)
+             @foreach ($material as $material)
                <tr class="table-primary" >
-                 <td>{{$gucci->id}}</td>
+                 <td>{{$material->id}}</td>
                  <td>
                    <a>
-                     {{$gucci->name}}
+                     {{$material->name}}
                    </a>
                  </td>
-                   <td>{{$gucci->price}}</td>
+                   <td>{{$material->uses}}</td>
                    <td>
-                     <a href="{{url("/material/".$gucci->material->id)}}">
-                     {{$gucci->material->name}}
-                     </a>
-                   </td>
-                   <td>{{$gucci->biography}}</td>
-                   <td>
-                     <button><a href="{{url("/gucci/".$gucci->id)}}">Show</a></button>
-                     <button><a href="{{url("/gucci/".$gucci->id."/edit")}}">Edit</a></button>
-                     <form method="post" action="{{url("/gucci/".$gucci->id)}}" class="d-inline">
+                     <button><a href="{{url("/material/".$material->id)}}">Show</a></button>
+                     <button><a href="{{url("/material/".$material->id."/edit")}}">Edit</a></button>
+                     <form method="post" action="{{url("/material/".$material->id)}}" class="d-inline">
                      {{method_field('DELETE')}}
                      @csrf
                      <button class="btn btn-outline-danger" type="submit" onclick="return confirm('Are u sure?')">Delete</button>

@@ -24,8 +24,8 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Add</a>
                 <div class="dropdown-menu" aria-labelledby="dropdownId">
-                    <a class="dropdown-item" href="{{url("/books/create")}}">Book</a>
-                    <a class="dropdown-item" href="{{url("/authors/create")}}">Author</a>
+                    <a class="dropdown-item" href="{{url("/gucci/create")}}">Product</a>
+                    <a class="dropdown-item" href="{{url("/material/create")}}">Material</a>
                     <a class="dropdown-item" href="{{url("/categories/create")}}">Category</a>
                     <a class="dropdown-item" href="{{url("/tags/create")}}">Tag</a>
                 </div>

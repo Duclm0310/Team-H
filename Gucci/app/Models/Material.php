@@ -5,15 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Gucci extends Model
+class Material extends Model
 {
     use HasFactory;
-    protected $table='guccis';
+    protected $table="materials";
     protected $fillable=[
-        'name','price','biography',
+        'name','uses',
     ];
 
-    public function material(){
-        return $this->belongsTo(Material::class);
+    public function guccis(){
+        return $this->hasMany(Gucci::class);
     }
 }
