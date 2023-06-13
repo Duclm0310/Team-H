@@ -26,3 +26,4 @@ Route::resource('/material', MaterialController::class);
 
 Route::resource('/designer',DesignerController::class);
 
+Route::resource('/Sales',SalesController::class);
