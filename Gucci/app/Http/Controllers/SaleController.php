@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Sales;
+use App\Models\Sale;
 use Illuminate\Http\Request;
 
-class SalesController extends Controller
+class SaleController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $Sales =  Sales::all();
-        return view('Sale.index',['Sales' => $Sales]);
+        $sale =  Sale::all();
+        return view('sale.index',['sale' => $sale]);
     }
 
     /**
@@ -21,7 +21,7 @@ class SalesController extends Controller
      */
     public function create()
     {
-        return view("Sale.create");
+        return view("sale.create");
     }
 
     /**
@@ -29,15 +29,14 @@ class SalesController extends Controller
      */
     public function store(Request $request)
     {
-        $Sales = new Sales();
+        $sale = new Sale();
 
-        $Sales->name = $request->name;
-        $Sales->date = $request->date;
-        $Sales->content = $request->content;
+        $sale ->name = $request->name;
+        $sale ->content = $request->content;
 
-        $Sales->save();
+        $sale ->save();
 
-        return redirect('/Sales');
+        return redirect('/sale');
     }
 
     /**
@@ -45,8 +44,8 @@ class SalesController extends Controller
      */
     public function show(string $id)
     {
-        $Sales = Sales::find($id);
-        return view('Sale.show',['Sales' => $Sales]);
+        $sale = Sale::find($id);
+        return view('sale.show',['sale' => $sale]);
     }
 
     /**
@@ -54,8 +53,8 @@ class SalesController extends Controller
      */
     public function edit(string $id)
     {
-        $Sales = Sales::find($id);
-        return view('Sale.edit',['Sales' => $Sales]);
+        $sale = Sale::find($id);
+        return view('sale.edit',['sale' => $sale]);
     }
 
     /**
@@ -63,15 +62,14 @@ class SalesController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $Sales = Sales::find($id);
+        $sale = Sale::find($id);
 
-        $Sales->name = $request->name;
-        $Sales->date = $request->date;
-        $Sales->content = $request->content;
+        $sale ->name = $request->name;
+        $sale ->content = $request->content;
 
-        $Sales->save();
+        $sale ->save();
 
-        return redirect('/Sales');
+        return redirect('/sale');
     }
 
     /**
@@ -79,10 +77,10 @@ class SalesController extends Controller
      */
     public function destroy(string $id)
     {
-        $Sales = Sales::find($id);
+        $sale = Sale::find($id);
 
-        $Sales->delete();
+        $sale->delete();
 
-        return redirect('/Sales');
+        return redirect('/sale');
     }
 }

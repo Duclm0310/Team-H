@@ -1,21 +1,33 @@
 @extends('layout.layout')
 @section('tile','gucci')
 @section('content')
-<div class="table-responsive">
+
   <div class="row">
     @foreach ($gucci as $gucci)
     <div class="ad col-lg-4">
       <div class="item">
-          <div>
-            {{-- image --}}
-              {{-- <a>
-                  <img src="" alt="">
-              </a> --}}
+        
+              <a>
+                  <img src="{{asset('storage/'.$gucci->photo)}}" class="card-img-top" alt="">
+              </a>
               <div class="brand">{{$gucci->name}}</div>
-              {{-- <div class="brand"></div> --}}
               <div class="sex">{{$gucci->material->name}}</div>
+              <div class="sex">{{$gucci->designer->name}}</div>
+              <div class="sex">
+                  @foreach($gucci->sales as $sale)
+                       <span >{{$sale->name}}</span>
+                  @endforeach
+              </div>
               <div class="price">{{$gucci->price}}</div>
-          </div>
+              <div class="action">
+                <button><a href="{{url("/gucci/".$gucci->id)}}">Show</a></button>
+                <button><a href="{{url("/gucci/".$gucci->id."/edit")}}">Edit</a></button>
+                <form method="post" action="{{url("/gucci/".$gucci->id)}}" class="d-inline">
+                {{method_field('DELETE')}}
+                @csrf
+                <button class="btn btn-outline-danger" type="submit" onclick="return confirm('Are u sure?')">Delete</button>
+                </form>
+              </div>
       </div>
         </div>
       @endforeach
@@ -66,7 +78,7 @@
            </tbody>
         
    </table> --}}
- </div>
+
 
 @endsection
 
@@ -74,6 +86,8 @@
   .ad{
 		margin: 10px 0;
 		width: 30%;
+    margin: 30px 0;
+
 	}
 	.item{
 		border: 3px solid #f4f1f1;
@@ -104,6 +118,10 @@
 		margin-bottom: 10px;
 	}
 	.ad{
-		margin-bottom: 5px;
+		margin: 50px 0;
 	}
+  .action{
+    padding-left: 60px;
+    margin: 20px 0;
+  }
   </style>

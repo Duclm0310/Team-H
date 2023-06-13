@@ -1,22 +1,25 @@
-
-
 @extends('layout.layout')
-@section('title', 'Edit Author')
+@section('tile','edit sale')
 @section('content')
-<form action="/Sales" method="post">
+
+<form method="post" action="/sale/{{$sale->id}}">
+    {{method_field('PUT')}}
     @csrf
     <div class="mb-3">
-        <label for="name" class="form-label">Author Name</label>
-        <input type="text" class="form-control" id="name" value="{{$Sales->name}}" name="name" placeholder="Author Name">
+        <label for="title" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="Sale name"
+        value={{$sale->name}}>
     </div>
+    {{-- <div class="mb-3">
+      <label for="author" class="form-label">Image</label>
+      {{-- <div>Image: <img src="{{$gucci->getFirstMediaUrl('images')}}"></div> --}}
+    {{-- </div> --}}
     <div class="mb-3">
-        <label class="form-label">Author Email</label>
-        <input type="text" class="form-control"  value="{{$Sales->date}}" name="date" placeholder="Author Email">
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Author Phone</label>
-        <input type="text" class="form-control"  value="{{$Sales->content}}" name="content" placeholder="Author Phone">
-    </div>
+      <label for="biography" class="form-label">Content</label>
+      <textarea class="form-control" id="content" name="content" rows="3">{{$sale->content}}
+      </textarea>
+  </div>
     <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-@endsection
+  </form>
+
+  @endsection

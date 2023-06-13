@@ -16,7 +16,9 @@ return new class extends Migration
             $table->string('name');
             $table->double('price');
             $table->foreignId('material_id')->constrained()->onDelete('cascade');
+            $table->foreignId('designer_id')->constrained()->onDelete('cascade');
             $table->text('biography');
+            $table->string('photo');
             $table->timestamps();
         });
     }

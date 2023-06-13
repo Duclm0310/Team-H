@@ -26,18 +26,18 @@
                 <div class="dropdown-menu" aria-labelledby="dropdownId">
                     <a class="dropdown-item" href="{{url("/gucci/create")}}">Product</a>
                     <a class="dropdown-item" href="{{url("/material/create")}}">Material</a>
-                    <a class="dropdown-item" href="{{url("/categories/create")}}">Category</a>
-                    <a class="dropdown-item" href="{{url("/tags/create")}}">Tag</a>
+                    <a class="dropdown-item" href="{{url("/designer/create")}}">Designer</a>
+                    <a class="dropdown-item" href="{{url("/sale/create")}}">Sale</a>
                 </div>
             </li>
         
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Show all</a>
                 <div class="dropdown-menu" aria-labelledby="dropdownId">
-                    <a class="dropdown-item" href="http://127.0.0.1:8000/books">Book</a>
-                    <a class="dropdown-item" href="http://127.0.0.1:8000/authors">Author</a>
-                    <a class="dropdown-item" href="http://127.0.0.1:8000/categories">Category</a>
-                    <a class="dropdown-item" href="http://127.0.0.1:8000/tags">Tag</a>
+                    <a class="dropdown-item" href="http://127.0.0.1:8000/gucci">Product</a>
+                    <a class="dropdown-item" href="http://127.0.0.1:8000/material">material</a>
+                    <a class="dropdown-item" href="http://127.0.0.1:8000/designer">Designer</a>
+                    <a class="dropdown-item" href="http://127.0.0.1:8000/sale">Sale</a>
                 </div>
             </li>
         </ul>

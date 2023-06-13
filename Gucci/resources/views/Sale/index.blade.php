@@ -1,40 +1,44 @@
 @extends('layout.layout')
-@section('title', 'Author List')
+@section('tile','Sales')
 @section('content')
 <div class="table-responsive">
-  <table class="table table-striped table-hover">
-      <thead class="table-light">
-          <tr>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Action</th>
-          </tr>
-          </thead>
-          <tbody class="table-group-divider">
-                @foreach ($Sales as $Sales)
-                <tr class="table-primary" >
-                  <td>
-                    <a href="{{url("/Sales/".$Sales->id)}}">
-                    {{$Sales->name}}
-                    </a>
-                  </td>
-                  <td>{{$Sales->date}}</td>
-                  <td>
-                    <a href="{{url("/Sales/".$Sales->id)}}" class="btn btn-primary">View</a>
-                    <a href="{{url("/Sales/".$Sales->id."/edit")}}" class="btn btn-warning">Edit</a>
-                    <form action="{{url("/Sales/".$Sales->id)}}" method="post" class="d-inline">
-                      {{ method_field('DELETE') }}
-                      @csrf
-                      <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?');">Delete</button>
-                    </form>
-                  </td>
-                </tr>
-                @endforeach
-          </tbody>
-          <tfoot>
-              
-          </tfoot>
-  </table>
-</div>
+   <table class="table table-striped
+   table-hover	
+   table-borderless
+   table-primary
+   align-middle">
+       <thead class="table-light">
+           <h1 class="h1">Sale</h1>
+           <tr>
+               <th>Id</th>
+               <th>Name</th>
+               <th>Content</th>
+               <th>Action</th>
+           </tr>
+           </thead>
+           <tbody class="table-group-divider">
+             @foreach ($sale as $sale)
+               <tr class="table-primary" >
+                 <td>{{$sale->id}}</td>
+                 <td>
+                   <a>
+                     {{$sale->name}}
+                   </a>
+                 </td>
+                   <td>{{$sale->content}}</td>
+                   <td>
+                     <button><a href="{{url("/sale/".$sale->id)}}">Show</a></button>
+                     <button><a href="{{url("/sale/".$sale->id."/edit")}}">Edit</a></button>
+                     <form method="post" action="{{url("/sale/".$sale->id)}}" class="d-inline">
+                     {{method_field('DELETE')}}
+                     @csrf
+                     <button class="btn btn-outline-danger" type="submit" onclick="return confirm('Are u sure?')">Delete</button>
+                     </form>
+                   </td>
+               </tr>
+               @endforeach
+           </tbody>
+   </table>
+ </div>
 
 @endsection

@@ -65,6 +65,16 @@
                 <td class="au_pub">{{$gucci->material->name}}</td>
               </tr>
               <tr class="table-primary">
+                <td scope="row">Designer</td>
+                <td class="au_pub">{{$gucci->designer->name}}</td>
+              </tr>
+              <tr class="table-primary">
+                <td scope="row">Sale</td>
+                @foreach($gucci->sales as $sale)
+                  <td class="au_pub">{{$sale->name}}</td>
+                @endforeach
+              </tr>
+              <tr class="table-primary">
                 <td scope="row">Biography</td>
                 <td>{{$gucci->biography}}</td>
               </tr>

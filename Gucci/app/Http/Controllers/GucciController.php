@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Gucci;
 use App\Models\Material;
+use App\Models\Designer;
+use App\Models\Sale;
 
 class GucciController extends Controller
 {
@@ -14,11 +16,29 @@ class GucciController extends Controller
     public function index()
     {
         //
+
         $gucci=Gucci::all();
         return view('gucci.index',
         ['gucci'=>$gucci,
     ]);
     }
+
+    // xác thực dữ liệu đầu vào.
+    protected function validator(array $data)
+{
+    return Validator::make($request,[
+        'name'=>['required','string'],
+        'price'=>['required','double'],
+        'material'=>['required','string'],
+        'biography'=>['required','string'],
+        'photo'=>['required','image|photo|mimes:jpeg,jpg,png'],
+    ]);
+}
+//lưu hình ảnh vào storage
+protected function storeImage(Request $request) {
+    $path = $request->file('photo')->store('public/profile');
+    return substr($path, strlen('public/'));
+  }
 
     /**
      * Show the form for creating a new resource.
@@ -26,9 +46,13 @@ class GucciController extends Controller
     public function create()
     {
         //
+        $designer=Designer::all();
         $material=Material::all();
+        $sale=Sale::all();
         return view('gucci.create',[
             'material'=>$material,
+            'designer'=>$designer,
+            'sale'=>$sale,
         ]);
     }
 
@@ -37,19 +61,15 @@ class GucciController extends Controller
      */
     public function store(Request $request)
     {
-        //
         $gucci=new Gucci;
         $gucci->name=$request->name;
         $gucci->price=$request->price;
         $gucci->material_id=$request->material;
+        $gucci->designer_id=$request->designer;
         $gucci->biography=$request->biography;
+        $gucci->photo=$request->photo;
         $gucci->save();
-
-        //store image
-        // if($request->hasFile('image') && $request->file('image')->isValid()){
-        //     $gucci->addMediaFromRequest('image')->toMediaCollection('images');
-        // }
-
+        $gucci->sales()->attach($request->sales);
         return redirect('gucci');
     }
 
@@ -60,10 +80,14 @@ class GucciController extends Controller
     {
         //
         $gucci=Gucci::find($id);
+        $designer=Designer::all();
         $material=Material::all();
+        $sale=Sale::all();
         return view('gucci.show',[
             'gucci' => $gucci,
             'material' => $material,
+            'designer' => $designer,
+            'sale' => $sale,
         ]);
     }
 
@@ -74,10 +98,14 @@ class GucciController extends Controller
     {
         //
         $gucci=Gucci::find($id);
+        $designer=Designer::all();
         $material=Material::all();
+        $sale=Sale::all();
         return view('gucci.edit',[
             'gucci' => $gucci,
             'material' => $material,
+            'designer' =>$designer,
+            'sale' =>$sale,
         ]);
     }
 
@@ -91,6 +119,8 @@ class GucciController extends Controller
         $gucci->name=$request->name;
         $gucci->price=$request->price;
         $gucci->material_id=$request->material;
+        $gucci->designer_id=$request->designer;
+        $gucci->sales()->sync($request->sales);
         $gucci->biography=$request->biography;
         $gucci->save();
 

@@ -24,10 +24,23 @@
           @endforeach
         </select>
     </div>
-    {{-- <div class="mb-3">
-      <label for="author" class="form-label">Image</label>
-      {{-- <div>Image: <img src="{{$gucci->getFirstMediaUrl('images')}}"></div> --}}
-    {{-- </div> --}}
+    <div class="mb-3">
+      <label for="author" class="form-label">Designer</label>
+      <select id="material" name="material" class="form-control">
+          <option selected="selected">Choose designer</option>
+          @foreach($designer as $designer)
+        <option {{($designer->id==$gucci->designer->id)?"selected":""}} value="{{$designer->id}}">{{$material->name}}</option>
+        @endforeach
+      </select>
+  </div>
+  <div class="form-group">
+    <label for="sales">Sales</label>
+    <select name="sales[]" id="sales" class="form-control" multiple>
+        @foreach($sale as $sale)
+        <option value="{{$sale->id}}" @if($gucci->sales->contains($sale->id)) selected @endif>{{$sale->name}}</option>
+        @endforeach
+    </select>
+  </div>
     <div class="mb-3">
       <label for="biography" class="form-label">Biography</label>
       <textarea class="form-control" id="biography" name="biography" rows="3">{{$gucci->biography}}

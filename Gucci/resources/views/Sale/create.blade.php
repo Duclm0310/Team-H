@@ -1,20 +1,18 @@
 @extends('layout.layout')
-@section('title', 'Edit Author')
+@section('tile','create new sale')
 @section('content')
-<form action="/Sales" method="post">
+
+<form method="post" action="/sale">
     @csrf
     <div class="mb-3">
-        <label for="name" class="form-label">Author Name</label>
-        <input type="text" class="form-control" id="name" name="name" placeholder="Author Name">
+        <label for="title" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="Material name">
     </div>
     <div class="mb-3">
-        <label class="form-label">Author Email</label>
-        <input type="text" class="form-control"  name="date" placeholder="Author Email">
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Author Phone</label>
-        <input type="text" class="form-control" name="content" placeholder="Author Phone">
-    </div>
+      <label for="biography" class="form-label">Content</label>
+      <textarea class="form-control" id="content" name="content" rows="3"></textarea>
+  </div>
     <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-@endsection
+  </form>
+
+  @endsection

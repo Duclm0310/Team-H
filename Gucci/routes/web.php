@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GucciController;
 use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\DesignerController;
+use App\Http\Controllers\SaleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,4 +27,4 @@ Route::resource('/material', MaterialController::class);
 
 Route::resource('/designer',DesignerController::class);
 
-Route::resource('/Sales',SalesController::class);
+Route::resource('/sale',SaleController::class);
