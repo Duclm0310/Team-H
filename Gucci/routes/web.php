@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GucciController;
 use App\Http\Controllers\SalesController;
+use App\Http\Controllers\DesignerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,5 @@ use App\Http\Controllers\SalesController;
 
 Route::resource('/gucci',GucciController::class);
 Route::resource('/Sales',SalesController::class);
+Route::resource('/designer',DesignerController::class);
+
