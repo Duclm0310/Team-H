@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-  <title>Gucci</title>
+  <title>Title</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -23,12 +23,16 @@
       @include("layout.navbar");
    </header>
   <main>
-    
-    <div class="container">
-        @yield('content')
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">{{$designer->name}}</h4>
+            <p class="card-text">{{$designer->email}}</p>
+            <p class="card-text">{{$designer->style}}</p>
+        </div>
+    </div>
   </main>
   <footer>
-    @include("layout.footer");
+    <!-- place footer here -->
   </footer>
   <!-- Bootstrap JavaScript Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"

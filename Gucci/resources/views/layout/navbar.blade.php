@@ -13,7 +13,7 @@
     }
     </style>
 <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: rgb(13, 13, 110);">
-    <a class="navbar-brand" href="#">HieuStore</a>
+    <a class="navbar-brand" href="#">Gucci</a>
     <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
         aria-expanded="false" aria-label="Toggle navigation"></button>
     <div class="collapse navbar-collapse" id="collapsibleNavId">

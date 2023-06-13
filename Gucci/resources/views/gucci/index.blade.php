@@ -2,7 +2,25 @@
 @section('tile','gucci')
 @section('content')
 <div class="table-responsive">
-   <table class="table table-striped
+  <div class="row">
+    @foreach ($gucci as $gucci)
+    <div class="ad col-lg-4">
+      <div class="item">
+          <div>
+            {{-- image --}}
+              {{-- <a>
+                  <img src="" alt="">
+              </a> --}}
+              <div class="brand">{{$gucci->name}}</div>
+              {{-- <div class="brand"></div> --}}
+              <div class="sex">{{$gucci->material->name}}</div>
+              <div class="price">{{$gucci->price}}</div>
+          </div>
+      </div>
+        </div>
+      @endforeach
+  </div>
+   {{-- <table class="table table-striped
    table-hover	
    table-borderless
    table-primary
@@ -46,10 +64,46 @@
                </tr>
                @endforeach
            </tbody>
-           <tfoot>
-               
-           </tfoot>
-   </table>
+        
+   </table> --}}
  </div>
 
 @endsection
+
+<style>
+  .ad{
+		margin: 10px 0;
+		width: 30%;
+	}
+	.item{
+		border: 3px solid #f4f1f1;
+		text-align:left;
+		height: 100%;
+	}
+	.item img{
+		width: 100%;
+		height: 40%;
+	}
+	.item img:hover{
+		transform: scale(1.1,1.1);
+	}
+
+	.sex,.brand,.price{
+		padding:0 0 5px 10px;
+	}
+	.sex{
+		font-size: 0.7rem;
+		color: rgb(103, 95, 95);
+	}
+	.brand{
+		font-weight: 500;
+	}
+	.price{
+		font-size: 1.2rem;
+		font-weight: bold;
+		margin-bottom: 10px;
+	}
+	.ad{
+		margin-bottom: 5px;
+	}
+  </style>
