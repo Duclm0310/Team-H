@@ -31,6 +31,10 @@
     .back:hover{
       background-color: aqua;
     }
+    /* img{
+      width: 30%;
+      height: 100px;
+    } */
     </style>
     
     @extends('layout.layout')
@@ -56,6 +60,10 @@
                 <td scope="row">Name</td>
                 <td>{{$gucci->name}}</td>
               </tr>
+              {{-- <tr class="table-primary" >
+                <td scope="row">Image</td>
+                <td><img src="{{url("/upload/".$gucci->photo)}}" class="card-img-top" alt=""></td>
+              </tr> --}}
               <tr class="table-primary">
                 <td scope="row">Price</td>
                 <td class="au_pub">{{$gucci->price}}</td>

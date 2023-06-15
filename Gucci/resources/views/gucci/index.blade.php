@@ -8,7 +8,7 @@
       <div class="item">
         
               <a>
-                  <img src="{{asset('storage/'.$gucci->photo)}}" class="card-img-top" alt="">
+                  <img src="{{url("/upload/".$gucci->photo)}}" class="card-img-top" alt="">
               </a>
               <div class="brand">{{$gucci->name}}</div>
               <div class="sex">{{$gucci->material->name}}</div>

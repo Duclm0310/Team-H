@@ -67,7 +67,9 @@ protected function storeImage(Request $request) {
         $gucci->material_id=$request->material;
         $gucci->designer_id=$request->designer;
         $gucci->biography=$request->biography;
-        $gucci->photo=$request->photo;
+        $photo=$request->file('photo')->store('public');
+
+        $gucci->photo=substr($photo,strlen('public/'));
         $gucci->save();
         $gucci->sales()->attach($request->sales);
         return redirect('gucci');
