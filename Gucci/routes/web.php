@@ -28,7 +28,7 @@ Route::resource('/material', MaterialController::class);
 
 Route::resource('/designer',DesignerController::class);
 
-Route::resource('/sale',SaleController::class);Route::resource('/sale',SaleController::class);
+Route::resource('/sale',SaleController::class);
 Route::get('/login', AuthenticationController::class . '@loginIndex');
 Route::get('/register', AuthenticationController::class . '@registerIndex');
 Route::post('/login', AuthenticationController::class . '@login');
