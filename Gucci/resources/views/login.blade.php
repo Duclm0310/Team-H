@@ -1,31 +1,5 @@
-@extends('layout.layout')
-@section('tile','create new product')
-@section('content')
-
-<form action="/login" method="post">
-    @csrf
-    <div class="form-group">
-        <label for="email">Email address:</label>
-        <input type="email" name="email" id="email" class="form-control" placeholder="Enter email" required>
-    </div>
-    <div class="form-group">
-        <label for="pwd">Password:</label>
-        <input type="password" name="password" id="password" class="form-control" placeholder="Enter password" required>
-    </div>
-    @error('message')
-        <div class="alert alert-danger">{{ $message }}</div>
-    @enderror
-    <button type="submit" class="btn btn-primary">Login</button>
-</form>
 
 
-
-@endsection
-
-
-
-
-{{-- 
 <!doctype html>
 <html lang="en">
 
@@ -77,13 +51,17 @@
                     <input type="password" name="password" id="password" class="form-control form-control-lg" placeholder="Enter password" required/>
                     <label class="form-label"  for="pwd">Password</label>
                   </div>
-
+                  
+                  @error('message')
+                  <div class="alert alert-danger">{{ $message }}</div>
+                  @enderror
+                  
                   <div class="pt-1 mb-4">
                     <button type="submit" class="btn btn-dark btn-lg btn-block" >Login</button>
                   </div>
 
                   <a class="small text-muted" href="#!">Forgot password?</a>
-                  <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="#!"
+                  <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="/register"
                       style="color: #393f81;">Register here</a></p>
                   <a href="#!" class="small text-muted">Terms of use.</a>
                   <a href="#!" class="small text-muted">Privacy policy</a>
@@ -112,4 +90,4 @@
   </script>
 </body>
 
-</html> --}}
+</html>
