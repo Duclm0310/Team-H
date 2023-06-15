@@ -39,12 +39,10 @@ class AuthenticationController extends Controller
  
             return redirect('/gucci');
         }
-        } else{
  
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
         ])->onlyInput('email');
-    }
     }
 
     public function register(Request $request)
