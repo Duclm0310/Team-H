@@ -40,6 +40,10 @@
         @endforeach
     </select>
 </div>
+  <div class="mb-3">
+    <label for="author" class="form-label">Count</label>
+    <input type="text" class="form-control" id="count" name="count" placeholder="Count">
+  </div>
     <div class="mb-3">
       <label for="biography" class="form-label">Biography</label>
       <textarea class="form-control" id="biography" name="biography" rows="3"></textarea>

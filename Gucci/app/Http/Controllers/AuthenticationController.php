@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthenticationController extends Controller
 {
+    public function index(){
+        return view('/gucci');
+    }
     /**
      * Display a listing of the resource.
      */
@@ -68,4 +71,5 @@ class AuthenticationController extends Controller
  
         return redirect('/login');
     }
+
 }

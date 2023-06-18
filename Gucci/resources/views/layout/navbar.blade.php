@@ -79,6 +79,20 @@
                     <a class="dropdown-item" href="http://127.0.0.1:8000/sale">Sale</a>
                 </div>
             </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Roles</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{url("http://127.0.0.1:8000/role")}}">List</a>
+                    <a class="dropdown-item" href="{{url("/role/create")}}">Add</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">User</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{url("http://127.0.0.1:8000/user")}}">List</a>
+                    <a class="dropdown-item" href="{{url("/user/create")}}">Add</a>
+                </div>
+            </li>
         </ul>
         <ul class="navbar-nav ml-auto">
             @if (Auth::check())

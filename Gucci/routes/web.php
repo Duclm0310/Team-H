@@ -6,6 +6,8 @@ use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\DesignerController;
 use App\Http\Controllers\SaleController;
 use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,23 +20,31 @@ use App\Http\Controllers\AuthenticationController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
-Route::resource('/gucci',GucciController::class);
+Route::resource('/gucci',GucciController::class)->middleware('auth');
 
-Route::resource('/material', MaterialController::class);
+Route::resource('/material', MaterialController::class)->middleware('auth');
 
-Route::resource('/designer',DesignerController::class);
+Route::resource('/designer',DesignerController::class)->middleware('auth');
 
-Route::resource('/sale',SaleController::class);
-Route::get('/login', AuthenticationController::class . '@loginIndex');
+Route::resource('/sale',SaleController::class)->middleware('auth');
+
+Route::resource('/role',RoleController::class)->middleware('auth');
+
+Route::resource('/user',UserController::class)->middleware('auth');
+
+
+
 // Route for borrowing books
 Route::get('/gucci/{id}/buy', GucciController::class . '@buy');
 
 // Route for get all books that user has borrowed
 Route::get('/bought', GucciController::class . '@bought');
+
+
+Route::get('/error', GucciController::class . '@error')->name('error');
+
+Route::get('/login', AuthenticationController::class . '@loginIndex')->name('login');
 Route::get('/register', AuthenticationController::class . '@registerIndex');
 Route::post('/login', AuthenticationController::class . '@login');
 Route::post('/register', AuthenticationController::class . '@register');

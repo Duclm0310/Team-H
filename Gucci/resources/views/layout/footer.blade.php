@@ -32,26 +32,7 @@
       <div class="me-5">
           <span>With us you will get prestige:</span>
       </div>
-      <div class="social-icons">
-          <a href="https://www.facebook.com/profile.php?id=100028934138753" class="text-white me-4">
-              <i class="fab fa-facebook-f"></i>
-          </a>
-          <a href="" class="text-white me-4">
-              <i class="fab fa-twitter"></i>
-          </a>
-          <a href="" class="text-white me-4">
-              <i class="fab fa-google"></i>
-          </a>
-          <a href="" class="text-white me-4">
-              <i class="fab fa-instagram"></i>
-          </a>
-          <a href="" class="text-white me-4">
-              <i class="fab fa-linkedin"></i>
-          </a>
-          <a href="" class="text-white me-4">
-              <i class="fab fa-github"></i>
-          </a>
-      </div>
+
   </section>
 
   <section>

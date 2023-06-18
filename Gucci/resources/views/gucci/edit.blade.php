@@ -26,10 +26,10 @@
     </div>
     <div class="mb-3">
       <label for="author" class="form-label">Designer</label>
-      <select id="material" name="material" class="form-control">
+      <select id="designer" name="designer" class="form-control">
           <option selected="selected">Choose designer</option>
           @foreach($designer as $designer)
-        <option {{($designer->id==$gucci->designer->id)?"selected":""}} value="{{$designer->id}}">{{$material->name}}</option>
+        <option {{($designer->id==$gucci->designer->id)?"selected":""}} value="{{$designer->id}}">{{$designer->name}}</option>
         @endforeach
       </select>
   </div>
@@ -40,6 +40,11 @@
         <option value="{{$sale->id}}" @if($gucci->sales->contains($sale->id)) selected @endif>{{$sale->name}}</option>
         @endforeach
     </select>
+  </div>
+  <div class="mb-3">
+    <label for="author" class="form-label">Count</label>
+    <input type="text" class="form-control" id="count" name="count" placeholder="Count"
+    value={{$gucci->count}}>
   </div>
     <div class="mb-3">
       <label for="biography" class="form-label">Biography</label>

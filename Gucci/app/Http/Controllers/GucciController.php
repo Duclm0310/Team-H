@@ -8,6 +8,7 @@ use App\Models\Material;
 use App\Models\Designer;
 use App\Models\Sale;
 use App\Models\Buy;
+use Illuminate\Support\Facades\Auth;
 
 class GucciController extends Controller
 {
@@ -17,29 +18,13 @@ class GucciController extends Controller
     public function index()
     {
         //
-
+        // dd(Auth::user());
         $gucci=Gucci::all();
         return view('gucci.index',
         ['gucci'=>$gucci,
     ]);
     }
 
-    // xác thực dữ liệu đầu vào.
-    protected function validator(array $data)
-{
-    return Validator::make($request,[
-        'name'=>['required','string'],
-        'price'=>['required','double'],
-        'material'=>['required','string'],
-        'biography'=>['required','string'],
-        'photo'=>['required','image|photo|mimes:jpeg,jpg,png'],
-    ]);
-}
-//lưu hình ảnh vào storage
-protected function storeImage(Request $request) {
-    $path = $request->file('photo')->store('public/profile');
-    return substr($path, strlen('public/'));
-  }
 
     /**
      * Show the form for creating a new resource.
@@ -67,6 +52,7 @@ protected function storeImage(Request $request) {
         $gucci->price=$request->price;
         $gucci->material_id=$request->material;
         $gucci->designer_id=$request->designer;
+        $gucci->count=$request->count;
         $gucci->biography=$request->biography;
         $photo=$request->file('photo')->store('public');
 
@@ -124,6 +110,7 @@ protected function storeImage(Request $request) {
         $gucci->material_id=$request->material;
         $gucci->designer_id=$request->designer;
         $gucci->sales()->sync($request->sales);
+        $gucci->count=$request->count;
         $gucci->biography=$request->biography;
         $gucci->save();
 
