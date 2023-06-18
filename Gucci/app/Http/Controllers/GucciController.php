@@ -7,6 +7,7 @@ use App\Models\Gucci;
 use App\Models\Material;
 use App\Models\Designer;
 use App\Models\Sale;
+use App\Models\Buy;
 
 class GucciController extends Controller
 {
@@ -138,5 +139,35 @@ protected function storeImage(Request $request) {
         $gucci=Gucci::find($id);
         $gucci->delete();
         return redirect('gucci');
+    }
+
+    public function buy(string $id){
+        $gucci=Gucci::find($id);
+        $gucci->count=$gucci->count-1;
+        $gucci->save();
+
+        $user=Auth::user();
+        $buy=new Buy();
+
+        $buy->user_id=$user->id;
+        $buy->gucci_id=$gucci->id;
+        $buy->buy_date=date('Y-m-d');
+        $buy->status='bought';
+
+        $buy->save();
+        return redirect('/gucci');
+    }
+
+    public function bought(){
+        $user=Auth::user();
+        $buys=Buy::where('user_id',$user->id)
+        ->where('status','bought')
+        ->get();
+        return $buys;
+    }
+
+    public function error(){
+        $code=request()->code;
+        return view('error');
     }
 }

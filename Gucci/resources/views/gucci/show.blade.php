@@ -91,4 +91,4 @@
         <button class="back"><a href="http://127.0.0.1:8000/gucci">Back to Homepage</a></button>
       </div>
       
-    @endsection
+    @endsection      <a href="http://127.0.0.1:8000/gucci" class="cart-btn">Back to Homepage</a>

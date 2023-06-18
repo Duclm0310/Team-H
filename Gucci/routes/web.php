@@ -30,6 +30,11 @@ Route::resource('/designer',DesignerController::class);
 
 Route::resource('/sale',SaleController::class);
 Route::get('/login', AuthenticationController::class . '@loginIndex');
+// Route for borrowing books
+Route::get('/gucci/{id}/buy', GucciController::class . '@buy');
+
+// Route for get all books that user has borrowed
+Route::get('/bought', GucciController::class . '@bought');
 Route::get('/register', AuthenticationController::class . '@registerIndex');
 Route::post('/login', AuthenticationController::class . '@login');
 Route::post('/register', AuthenticationController::class . '@register');
