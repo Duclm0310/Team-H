@@ -31,7 +31,11 @@
                     </td>
                     <td>
                         <a href="" class="btn btn-primary">Edit</a>
-                        <a href="" class="btn btn-primary btn-warning">Delete</a>
+                        <form method="post" action="{{url("/role/".$model->id)}}" class="d-inline">
+                            {{method_field('DELETE')}}
+                            @csrf
+                            <button class="btn btn-outline-danger" type="submit" onclick="return confirm('Are u sure?')">Delete</button>
+                            </form>
                     </td>
                 </tr>
                 @endforeach
