@@ -28,7 +28,7 @@
       @foreach($role as $role)
       <div class="checkbox">
         <label>
-            <input type="checkbox" type="checkbox" name="role[]" value="">
+            <input type="checkbox" type="checkbox" name="role[]" value="{{$role->id}}">
             {{$role->name}}
         </label>
       </div>
