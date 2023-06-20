@@ -147,11 +147,37 @@ class GucciController extends Controller
 
     public function bought(){
         $user=Auth::user();
+        $gucci = Gucci::all();
         $buys=Buy::where('user_id',$user->id)
         ->where('status','bought')
         ->get();
         return $buys;
+        return view('gucci.bought', ['buys' => $buys, 'user' => $user, 'gucci' => $gucci]);
     }
+
+    public function refund(string $id,Request $request){
+
+            $buy= Buy::find($id);
+            $gucci = Gucci::find($buy->gucci->id);
+            $gucci->count=$gucci->count+1;
+            $gucci->save();
+            $user=Auth::user();
+
+            $buy->status=$request->status='refunded';
+    
+            $buy->save();
+            return redirect('/gucci');
+        }
+    
+        public function refunded(){
+            $user=Auth::user();
+            $buys=Buy::where('user_id',$user->id)
+            ->where('status','refunded')
+            ->get();
+            return $buys;
+        }
+
+
 
     public function error(){
         $code=request()->code;
