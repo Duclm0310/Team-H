@@ -19,5 +19,7 @@ class Buy extends Model
 
     public function book(){
         return $this->belongsTo(Book::class);
+    public function gucci(){
+        return $this->belongsTo(Gucci::class);
     }
 }

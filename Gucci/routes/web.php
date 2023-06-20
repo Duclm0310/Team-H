@@ -41,6 +41,7 @@ Route::get('/gucci/{id}/buy', GucciController::class . '@buy');
 // Route for get all books that user has borrowed
 Route::get('/bought', GucciController::class . '@bought');
 
+Route::get('/gucci/{id}/refund', GucciController::class . '@refund');
 
 Route::get('/error', GucciController::class . '@error')->name('error');
 
