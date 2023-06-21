@@ -12,6 +12,7 @@
            <tr>
                <th>Id</th>
                <th>Product</th>
+               <th>Date Buy</th>
                <th>Status</th>
                <th>Action</th>
            </tr>
@@ -25,6 +26,7 @@
                      {{$buy->gucci->name}}
                    </a>
                  </td>
+                  <td>{{$buy->buy_date}}</td>
                    <td>{{$buy->status}}</td>
                    <td>
                      {{-- <button><a href="{{url("/material/".$material->id)}}">Show</a></button>
