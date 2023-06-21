@@ -8,11 +8,12 @@
 
   <title>@yield('title')</title>
 
-  <!-- Required meta tags -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-xHjBc+yMEyXHNRqe4Nc3rLdZvJySZdzF/SI5ETnZmk4CZ0EZUX+afY8/e/JQO3P7" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
   <link rel="stylesheet" href="path/to/bootstrap.min.css">
   <script src="path/to/bootstrap.min.js"></script>
@@ -27,7 +28,7 @@ integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+f
    <header>
       @include("layout.navbar")
    </header>
-  <main>
+  <main style="width: 100%">
     
     <div class="container">
         @yield('content')

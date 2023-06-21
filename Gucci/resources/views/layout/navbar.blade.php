@@ -43,7 +43,7 @@
     }
 
     .navbar-nav.ml-auto .nav-link.btn {
-        padding: 8px 20px;
+        /* padding: 8px 20px; */
         background-color: #7c4dff;
         border-radius: 30px;
         font-weight: bold;
@@ -99,7 +99,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">{{ Auth::user()->name }}</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" style="margin-right: 20px">
                     <a class="nav-link btn" href="/logout">Logout</a>
                 </li>
             @else
